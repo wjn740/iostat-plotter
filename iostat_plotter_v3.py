@@ -7,7 +7,7 @@
 # License: GNU GPL v2 (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
 # Version 2, June 1991
 #
-# Copyright (C) 1989, 1991 Free Software Foundation, Inc.  
+# Copyright (C) 1989, 1991 Free Software Foundation, Inc.
 # 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
 #
 # Everyone is permitted to copy and distribute verbatim copies
@@ -25,7 +25,7 @@
 #
 # [laytonjb ~]$ iostat -c -d -x -t -m 1 100 > iostat.out
 #
-# "1 100" which tells iostat to use "1" second intervals  and "100" 
+# "1 100" which tells iostat to use "1" second intervals  and "100"
 # means to gather data for 100 time (or 100 sceonds in this case).
 #
 # Then to run iostat_plotter, the command is,
@@ -167,7 +167,7 @@ def help_out():
 
 
 
-def Three_Chart(x1, y1, x2, y2, x3, y3, xlabel, ylabel1, ylabel2, ylabel3, 
+def Three_Chart(x1, y1, x2, y2, x3, y3, xlabel, ylabel1, ylabel2, ylabel3,
                 d1, d2, d3, fsize, flegsize, filename, box_expansion):
    #
    # Creates 3 vertical subplots with legends and 1 x-axis label at the
@@ -191,7 +191,7 @@ def Three_Chart(x1, y1, x2, y2, x3, y3, xlabel, ylabel1, ylabel2, ylabel3,
    # filename = name of file for plot output
    # box_expansion = expansion factor on legend box
    #
-   
+
    # Top plot
    ax1 = plt.subplot(311);                 # Define top plot using subplot function
    plt.plot(x1,y1, "ro-", label=d1);       # Plot the first data set with a red line wiht "o" as a symbol
@@ -199,21 +199,21 @@ def Three_Chart(x1, y1, x2, y2, x3, y3, xlabel, ylabel1, ylabel2, ylabel3,
    plt.xlabel(" ");                        # Don't put an x-axis label since it's the top plot
    plt.ylabel(ylabel1, fontsize=6);    # Use a 10 pt font for y-axis label
    ax1.set_xticklabels([]);                # get x-axis tick label
-   
+
    # Legend
    box = ax1.get_position()
-   ax1.set_position([box.x0, box.y0, box.width * box_expansion, box.height])  
-   leg1 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0, 
+   ax1.set_position([box.x0, box.y0, box.width * box_expansion, box.height])
+   leg1 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0,
                      borderpad=0.15, handletextpad=0.2);
    frame1 = leg1.get_frame();
    frame1.set_facecolor("0.80");           # Make legend box have a gray background
    for t in leg1.get_texts():
       t.set_fontsize(flegsize);               # Change the font size of the legend text to 10 pt.
    # end for
-   
+
    plt.xticks(fontsize=6);
    plt.yticks(fontsize=6);
-   
+
    # Middle plot
    ax2 = plt.subplot(312);
    plt.plot(x2,y2, "bo-", label=d2);
@@ -221,42 +221,42 @@ def Three_Chart(x1, y1, x2, y2, x3, y3, xlabel, ylabel1, ylabel2, ylabel3,
    plt.xlabel(" ");
    plt.ylabel(ylabel2, fontsize=fsize);
    ax2.set_xticklabels([]);
-   
+
    # Legend
    box = ax2.get_position();
    ax2.set_position([box.x0, box.y0, box.width * box_expansion, box.height]);
-   leg2 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0, 
+   leg2 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0,
                      borderpad=0.15, handletextpad=0.2);
    frame2 = leg2.get_frame();
    frame2.set_facecolor("0.80");
    for t in leg2.get_texts():
       t.set_fontsize(flegsize);
    # end for
-   
+
    plt.xticks(fontsize=fsize);
    plt.yticks(fontsize=fsize);
-   
+
    # Bottom plot
    ax3 = plt.subplot(313);
    plt.plot(x3,y3, "go-", label=d3);
    plt.grid();
    plt.xlabel(xlabel);
    plt.ylabel(ylabel3, fontsize=fsize);
-   
+
    # Legend
    box = ax3.get_position()
    ax3.set_position([box.x0, box.y0, box.width * box_expansion, box.height])
-   leg3 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0, 
+   leg3 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0,
                      borderpad=0.15, handletextpad=0.2);
    frame3 = leg3.get_frame();
    frame3.set_facecolor("0.80");
    for t in leg3.get_texts():
       t.set_fontsize(flegsize);
    # end for
-   
+
    plt.xticks(fontsize=fsize);
    plt.yticks(fontsize=fsize);
-   
+
    # Either save the plot to a file or display it to the screen
    if (len(filename) == 0):
       plt.show();
@@ -264,7 +264,7 @@ def Three_Chart(x1, y1, x2, y2, x3, y3, xlabel, ylabel1, ylabel2, ylabel3,
       plt.savefig(filename);
       plt.close();
    # end if
-   
+
 # end def
 
 
@@ -289,7 +289,7 @@ def Two_Chart(x1, y1, x2, y2, xlabel, ylabel1, ylabel2, d1, d2, fsize, flegsize,
    # filename = name of file for plot output
    # box_expansion = expansion factor for legend
    #
-   
+
    # Top plot
    ax1 = plt.subplot(211);
    plt.plot(x1,y1, "ro-", label=d1);
@@ -297,43 +297,43 @@ def Two_Chart(x1, y1, x2, y2, xlabel, ylabel1, ylabel2, d1, d2, fsize, flegsize,
    plt.xlabel(" ");
    plt.ylabel(ylabel1, fontsize=fsize);
    ax1.set_xticklabels([]);
-   
+
    # Legend
    box = ax1.get_position()
    ax1.set_position([box.x0, box.y0, box.width * box_expansion, box.height])
-   leg1 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0, 
+   leg1 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0,
                      borderpad=0.15, handletextpad=0.2);
    frame1 = leg1.get_frame();
    frame1.set_facecolor("0.80");
    for t in leg1.get_texts():
       t.set_fontsize(flegsize);
    # end for
-   
+
    # Bottom Plot
    ax2 = plt.subplot(212);
    plt.plot(x2,y2, "go-", label=d2);
    plt.grid();
    plt.xlabel(xlabel);
    plt.ylabel(ylabel2, fontsize=fsize);
-   
+
    # Legend
    box = ax2.get_position()
    ax2.set_position([box.x0, box.y0, box.width * box_expansion, box.height])
-   leg2 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0, 
+   leg2 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0,
                      borderpad=0.15, handletextpad=0.2);
    frame2 = leg2.get_frame();
    frame2.set_facecolor("0.80");
    for t in leg2.get_texts():
       t.set_fontsize(fsize);
    # end for
-   
+
    if (len(filename) == 0):
       plt.show();
    else:
       plt.savefig(filename);
       plt.close();
    # end if
-   
+
 # end def
 
 
@@ -357,31 +357,31 @@ def One_Chart(x, y, xlabel, ylabel, d, fsize, flegsize, filename, box_expansion)
    plt.grid();
    plt.xlabel(xlabel);
    plt.ylabel(ylabel, fontsize=fsize);
-   
+
    # Legend
    box = ax1.get_position()
    ax1.set_position([box.x0, box.y0, box.width * box_expansion, box.height])
-   leg1 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0, 
+   leg1 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0,
                      borderpad=0.15, handletextpad=0.2);
    frame = leg1.get_frame();
    frame.set_facecolor("0.80");
    for t in leg1.get_texts():
       t.set_fontsize(flegsize);
    # end for
-   
+
    if (len(filename) == 0):
       plt.show();
    else:
       plt.savefig(filename);
       plt.close();
    # end if
-   
+
 # end def
 
 
 
 
-def plot1(iloop, iplot, combined_plots, f, dirname, x_seconds, user_list, system_list, 
+def plot1(iloop, iplot, combined_plots, f, dirname, x_seconds, user_list, system_list,
           nice_list, fsize, item):
    #
    # Figure 1: Various CPU percentages (user, system, nice) vs. time (3 subplots)
@@ -408,7 +408,7 @@ def plot1(iloop, iplot, combined_plots, f, dirname, x_seconds, user_list, system
    output_str = output_str + "percentage of CPU utilization that occurred while executing at \n";
    output_str = output_str + "the  user  level with nice priority. \n";
    f.write(output_str);
-    
+
    # make the plot
    ylabel1 = "% CPU Utilization \n by User tasks";
    ylabel2 = "% CPU Utilization \n by System tasks";
@@ -420,7 +420,7 @@ def plot1(iloop, iplot, combined_plots, f, dirname, x_seconds, user_list, system
    filename = dirname + "/percentage_cpu_utilization" + str(iloop);
    fsize = 8;
    flegsize = 6;
-   
+
    # Compute box_expansion factor:
    box_expansion = 0.95;   # Default
    ilongest = 0;
@@ -435,11 +435,11 @@ def plot1(iloop, iplot, combined_plots, f, dirname, x_seconds, user_list, system
    # end if
    junk1 = -0.0082702674*ilongest + 1.0538027948;   # Curve fit of # chars vs. expansion box
    expansion_box = round(junk1,2);
-   
+
    Three_Chart(x_seconds, user_list, x_seconds, system_list, x_seconds, nice_list,
                xlabel, ylabel1, ylabel2, ylabel3, d1, d2, d3, fsize, flegsize,
                filename, box_expansion);
-   
+
    # HTML Output: (Figure html)
    output_str = "<center> \n";
    junk1 = "percentage_cpu_utilization" + str(iloop) + ".png";
@@ -452,12 +452,12 @@ def plot1(iloop, iplot, combined_plots, f, dirname, x_seconds, user_list, system
    output_str = output_str + "<BR><BR> \n";
    output_str = output_str + "</P> \n \n";
    f.write(output_str);
-   
+
 # end def
 
 
 
-def plot2(iloop, iplot,  combined_plots, f, dirname, x_seconds, iowait_list, 
+def plot2(iloop, iplot,  combined_plots, f, dirname, x_seconds, iowait_list,
           fsize, item):
    #
    # Figure 2: iowait percentage time
@@ -478,7 +478,7 @@ def plot2(iloop, iplot,  combined_plots, f, dirname, x_seconds, iowait_list,
    output_str = output_str + "This is the percentage of time that the CPU or CPUs were idle \n";
    output_str = output_str + "during which the system had an outstanding disk device I/O request. \n";
    f.write(output_str);
-   
+
    # make the plot
    ylabel = "% IOwait CPU Percentage Time \n Waiting for IO requests";
    xlabel = "Time (seconds)";
@@ -486,7 +486,7 @@ def plot2(iloop, iplot,  combined_plots, f, dirname, x_seconds, iowait_list,
    filename = dirname + "/iowait_percentage_cpu_time" + str(iloop);
    fsize = 8;
    flegsize = 6;
-   
+
    # Compute box_expansion factor:
    box_expansion = 0.96;
    ilongest = 0;
@@ -495,9 +495,9 @@ def plot2(iloop, iplot,  combined_plots, f, dirname, x_seconds, iowait_list,
    # end if
    junk1 = -0.0082702674*ilongest + 1.0538027948;   # Curve fit of # chars vs. expansion box
    expansion_box = round(junk1,2);
-   
+
    One_Chart(x_seconds, iowait_list, xlabel, ylabel, d, fsize, flegsize, filename, box_expansion);
-   
+
    # HTML Output:
    output_str = "<center> \n";
    junk1 = "iowait_percentage_cpu_time" + str(iloop) + ".png";
@@ -510,12 +510,12 @@ def plot2(iloop, iplot,  combined_plots, f, dirname, x_seconds, iowait_list,
    output_str = output_str + "<BR><BR> \n";
    output_str = output_str + "</P> \n \n";
    f.write(output_str);
-   
+
 # end def
 
 
 
-def plot3(iloop, iplot, combined_plots, f, dirname, x_seconds, steal_list, 
+def plot3(iloop, iplot, combined_plots, f, dirname, x_seconds, steal_list,
           fsize, item):
    #
    # Figure 3: Steal Time
@@ -537,7 +537,7 @@ def plot3(iloop, iplot, combined_plots, f, dirname, x_seconds, steal_list,
    output_str = output_str + "wait by the virtual CPU or CPUs while the hypervisor was \n";
    output_str = output_str + "servicing another virtual processor. \n";
    f.write(output_str);
-   
+
    # make the plot
    ylabel = "% Steal CPU Percentage Time \n Waiting for IO requests";
    xlabel = "Time (seconds)";
@@ -545,7 +545,7 @@ def plot3(iloop, iplot, combined_plots, f, dirname, x_seconds, steal_list,
    filename = dirname + "/steal_percentage_cpu_time" + str(iloop);
    fsize = 8;
    flegsize = 6;
-   
+
    # Compute box_expansion factor:
    box_expansion = 0.96;
    ilongest = 0;
@@ -554,9 +554,9 @@ def plot3(iloop, iplot, combined_plots, f, dirname, x_seconds, steal_list,
    # end if
    junk1 = -0.0082702674*ilongest + 1.0538027948;   # Curve fit of # chars vs. expansion box
    expansion_box = round(junk1,2);
-   
+
    One_Chart(x_seconds, steal_list, xlabel, ylabel, d, fsize, flegsize, filename, box_expansion);
-   
+
    # HTML Output:
    output_str = "<center> \n";
    junk1 = "steal_percentage_cpu_time" + str(iloop) + ".png";
@@ -569,7 +569,7 @@ def plot3(iloop, iplot, combined_plots, f, dirname, x_seconds, steal_list,
    output_str = output_str + "<BR><BR> \n";
    output_str = output_str + "</P> \n \n";
    f.write(output_str);
-   
+
 # end def
 
 
@@ -595,7 +595,7 @@ def plot4(iloop, iplot, combined_plots, f, dirname, x_seconds, idle_list,
    output_str = output_str + "This is the percentage of time that the CPU or CPUs were \n";
    output_str = output_str + "idle and the system did not have an outstanding disk I/O request. \n";
    f.write(output_str);
-   
+
    # make the plot
    ylabel = "% Idle CPU Percentage Time \n and no Waiting for IO requests";
    xlabel = "Time (seconds)";
@@ -603,7 +603,7 @@ def plot4(iloop, iplot, combined_plots, f, dirname, x_seconds, idle_list,
    filename = dirname + "/idle_percentage_cpu_time" + str(iloop);
    fsize = 8;
    flegsize = 6;
-   
+
    # Compute box_expansion factor:
    box_expansion = 0.97;
    ilongest = 0;
@@ -612,9 +612,9 @@ def plot4(iloop, iplot, combined_plots, f, dirname, x_seconds, idle_list,
    # end if
    junk1 = -0.0082702674*ilongest + 1.0538027948;   # Curve fit of # chars vs. expansion box
    expansion_box = round(junk1,2);
-   
+
    One_Chart(x_seconds, idle_list, xlabel, ylabel, d, fsize, flegsize, filename, box_expansion);
-   
+
    # HTML Output:
    output_str = "<center> \n";
    junk1 = "idle_percentage_cpu_time" + str(iloop) + ".png";
@@ -654,7 +654,7 @@ def plot5(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
    output_str = output_str + "in MB/s versus time and the bottom graph plots the Total CPU \n";
    output_str = output_str + "Utilization percentage (User Time + System Time). \n";
    f.write(output_str);
-   
+
    # make the plot
    ylabel1 = "Read Throughput (MB/s)";
    ylabel2 = "Total CPU Percentage Utilization";
@@ -664,9 +664,9 @@ def plot5(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
    filename = dirname + "/read_throughput" + str(iloop);
    fsize = 8;
    flegsize = 6;
-   
+
    if (combined_plots == 0):
-      
+
       # Compute box_expansion factor:
       box_expansion = 0.88;   # default
       ilongest = 0;
@@ -678,12 +678,12 @@ def plot5(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
       # end if
       junk1 = -0.0082702674*ilongest + 1.0538027948;   # Curve fit of # chars vs. expansion box
       expansion_box = round(junk1,2);
-      
-      Two_Chart(x_seconds, item["rMB"], x_seconds, time_sum_list, xlabel, ylabel1, 
+
+      Two_Chart(x_seconds, item["rMB"], x_seconds, time_sum_list, xlabel, ylabel1,
                 ylabel2, d1, d2, fsize, flegsize, filename, box_expansion);
    elif (combined_plots == 1):
       jloop = -1;
-      
+
       # Compute expansion_box factor:
       box_expansion = 0.88;   # default
       ilongest = 0;
@@ -705,31 +705,31 @@ def plot5(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
       # end for
       junk1 = -0.0082702674*ilongest + 1.0538027948;   # Curve fit of # chars vs. expansion box
       expansion_box = round(junk1,2);
-      
+
       # Top plot
       for item in device_data_list:
          jloop = jloop + 1;
-         
+
          marker = line_list[jloop];
          ax1 = plt.subplot(211);
          d11 = item["device"] + " " + d1;
          plt.plot(x_seconds, item["rMB"], marker, label=d11);
          plt.xlabel(" ");
          plt.ylabel(ylabel1, fontsize=fsize);
-         ax1.set_xticklabels([]); 
+         ax1.set_xticklabels([]);
       # end for
       plt.grid();
       # Legend
       box = ax1.get_position();
       ax1.set_position([box.x0, box.y0, box.width * box_expansion, box.height]);
-      leg1 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0, 
+      leg1 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0,
                         borderpad=0.15, handletextpad=0.2);
       frame1 = leg1.get_frame();
       frame1.set_facecolor("0.80");
       for t in leg1.get_texts():
          t.set_fontsize(flegsize);
       # end for
-      
+
       # Bottom Plot
       fsize = 8;
       flegsize = 6;
@@ -738,18 +738,18 @@ def plot5(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
       plt.grid();
       plt.xlabel(xlabel);
       plt.ylabel(ylabel2, fontsize=fsize);
-      
+
       # Legend
       box = ax2.get_position()
       ax2.set_position([box.x0, box.y0, box.width * box_expansion, box.height])
-      leg2 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0.0, labelspacing=0, 
+      leg2 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0.0, labelspacing=0,
                         borderpad=0.15, handletextpad=0.2);
       frame2 = leg2.get_frame();
       frame2.set_facecolor("0.80");
       for t in leg2.get_texts():
          t.set_fontsize(flegsize);
       # end for
-      
+
       if (len(filename) == 0):
          plt.show();
       else:
@@ -757,7 +757,7 @@ def plot5(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
          plt.close();
       # end if
    # end if
-   
+
    # HTML Output:
    output_str = "<center> \n";
    junk1 = "read_throughput" + str(iloop) + ".png";
@@ -770,7 +770,7 @@ def plot5(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
    output_str = output_str + "<BR><BR> \n";
    output_str = output_str + "</P> \n \n";
    f.write(output_str);
-   
+
 # end if
 
 
@@ -796,7 +796,7 @@ def plot6(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
    output_str = output_str + "in MB/s versus time and the bottom graph plots the Total CPU \n";
    output_str = output_str + "Utilization percentage (User Time + System Time). \n";
    f.write(output_str);
-   
+
    # make the plot
    ylabel1 = "Write Throughput (MB/s)";
    ylabel2 = "Total CPU Percentage Utilization";
@@ -806,9 +806,9 @@ def plot6(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
    filename = dirname + "/write_throughput" + str(iloop);
    fsize = 8;
    flegsize = 6;
-   
+
    if (combined_plots == 0):
-      
+
       # Compute box_expansion factor:
       box_expansion = 0.82;   # default
       ilongest = 0;
@@ -820,12 +820,12 @@ def plot6(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
       # end if
       junk1 = -0.0082702674*ilongest + 1.0538027948;   # Curve fit of # chars vs. expansion box
       expansion_box = round(junk1,2);
-      
-      Two_Chart(x_seconds, item["wMB"], x_seconds, time_sum_list, xlabel, ylabel1, 
+
+      Two_Chart(x_seconds, item["wMB"], x_seconds, time_sum_list, xlabel, ylabel1,
                 ylabel2, d1, d2, fsize, flegsize, filename, box_expansion);
    elif (combined_plots == 1):
       jloop = -1;
-      
+
       # Compute box_expansion factor:
       box_expansion = 0.88;   # Default
       ilongest = 0;
@@ -847,11 +847,11 @@ def plot6(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
       # end for
       junk1 = -0.0082702674*ilongest + 1.0538027948;   # Curve fit of # chars vs. expansion box
       expansion_box = round(junk1,2);
-      
+
       # Top plot
       for item in device_data_list:
          jloop = jloop + 1;
-         
+
          marker = line_list[jloop];
          ax1 = plt.subplot(211);
          d11 = item["device"] + " " + d1;
@@ -864,32 +864,32 @@ def plot6(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
       # Legend
       box = ax1.get_position();
       ax1.set_position([box.x0, box.y0, box.width * box_expansion, box.height])
-      leg1 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0, 
+      leg1 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0,
                         borderpad=0.15, handletextpad=0.2);
       frame1 = leg1.get_frame();
       frame1.set_facecolor("0.80");
       for t in leg1.get_texts():
          t.set_fontsize(flegsize);
       # end for
-      
+
       # Bottom Plot
       ax2 = plt.subplot(212);
       plt.plot(x_seconds, time_sum_list, "go-", label=d2);
       plt.grid();
       plt.xlabel(xlabel);
       plt.ylabel(ylabel2, fontsize=fsize);
-      
+
       # Legend
       box = ax2.get_position()
       ax2.set_position([box.x0, box.y0, box.width * box_expansion, box.height])
-      leg2 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0, 
+      leg2 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0,
                         borderpad=0.15, handletextpad=0.2);
       frame2 = leg2.get_frame();
       frame2.set_facecolor("0.80");
       for t in leg2.get_texts():
          t.set_fontsize(flegsize);
       # end for
-      
+
       if (len(filename) == 0):
          plt.show();
       else:
@@ -897,7 +897,7 @@ def plot6(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
          plt.close();
       # end if
    # end if
-   
+
    # HTML Output:
    output_str = "<center> \n";
    junk1 = "write_throughput" + str(iloop) + ".png";
@@ -910,7 +910,7 @@ def plot6(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
    output_str = output_str + "<BR><BR> \n";
    output_str = output_str + "</P> \n \n";
    f.write(output_str);
-   
+
 # end def
 
 
@@ -932,7 +932,7 @@ def plot7(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
       output_str = output_str + str(iplot) + ". <a id=\"" + junk1 + "\">Read Requests Complete, Write Requests Complete, and Total CPU Utilization</a>";
       output_str = output_str + "</H3> \n";
    # end if
-   
+
    output_str = output_str + " \n";
    output_str = output_str + "<P> \n";
    output_str = output_str + "This figure has three parts. The top graph plots the number (after \n";
@@ -942,7 +942,7 @@ def plot7(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
    output_str = output_str + "The bottom graph plots the Total CPU Utilization percentage \n";
    output_str = output_str + "(User Time + System Time). \n";
    f.write(output_str);
-   
+
    # make the plot
    ylabel1 = "Read requests \n complete rate \n (requests/s)";
    ylabel2 = "Write requests \n complete rate \n (requests/s)";
@@ -954,9 +954,9 @@ def plot7(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
    filename = dirname + "/read_write_requests_complete_rate" + str(iloop);
    fsize = 8;
    flegsize = 6;
-   
+
    if (combined_plots == 0):
-      
+
       # Compute box_expansion factor:
       box_expansion = 0.86;    # default
       ilongest = 0;
@@ -971,12 +971,12 @@ def plot7(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
       # end if
       junk1 = -0.0082702674*ilongest + 1.0538027948;   # Curve fit of # chars vs. expansion box
       expansion_box = round(junk1,2);
-      
-      Three_Chart(x_seconds, item["r"], x_seconds, item["w"], x_seconds, time_sum_list, xlabel, ylabel1, 
+
+      Three_Chart(x_seconds, item["r"], x_seconds, item["w"], x_seconds, time_sum_list, xlabel, ylabel1,
                   ylabel2, ylabel3, d1, d2, d3, fsize, flegsize, filename, box_expansion);
    elif (combined_plots == 1):
       jloop = -1;
-      
+
       # Compute box_expansion factor:
       expansion_box = 0.86;   # default
       ilongest = 0;
@@ -1004,11 +1004,11 @@ def plot7(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
       # end for
       junk1 = -0.0082702674*ilongest + 1.0538027948;   # Curve fit of # chars vs. expansion box
       expansion_box = round(junk1,2);
-      
+
       # Top plot:
       for item in device_data_list:
          jloop = jloop + 1;
-         
+
          marker = line_list[jloop];
          ax1 = plt.subplot(311);                 # Define top plot using subplot function
          d11 = item["device"] + " " + d1;
@@ -1016,7 +1016,7 @@ def plot7(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
          plt.xlabel(" ");                        # Don't put an x-axis label since it's the top plot
          plt.ylabel(ylabel1, fontsize=fsize);    # Use a 10 pt font for y-axis label
          ax1.set_xticklabels([]);                # get x-axis tick label
-         
+
          plt.xticks(fontsize=fsize);
          plt.yticks(fontsize=fsize);
       # end for
@@ -1024,19 +1024,19 @@ def plot7(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
       # Legend
       box = ax1.get_position()
       ax1.set_position([box.x0, box.y0, box.width * expansion_box, box.height])
-      leg1 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0, 
+      leg1 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0,
                         borderpad=0.15, handletextpad=0.2);
       frame1 = leg1.get_frame();
       frame1.set_facecolor("0.80");           # Make legend box have a gray background
       for t in leg1.get_texts():
          t.set_fontsize(flegsize);               # Change the font size of the legend text to 10 pt.
       # end if
-      
+
       # Middle Plot:
       jloop = -1;
       for item in device_data_list:
          jloop = jloop + 1;
-         
+
          marker = line_list[jloop];
          ax2 = plt.subplot(312);
          d22 = item["device"] + " " + d2;
@@ -1044,7 +1044,7 @@ def plot7(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
          plt.xlabel(" ");
          plt.ylabel(ylabel2, fontsize=fsize);
          ax2.set_xticklabels([]);
-         
+
          plt.xticks(fontsize=fsize);
          plt.yticks(fontsize=fsize);
       # end for
@@ -1052,35 +1052,35 @@ def plot7(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
       # Legend:
       box = ax2.get_position()
       ax2.set_position([box.x0, box.y0, box.width * expansion_box, box.height])
-      leg2 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0, 
+      leg2 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0,
                         borderpad=0.15, handletextpad=0.2);
       frame2 = leg2.get_frame();
       frame2.set_facecolor("0.80");
       for t in leg2.get_texts():
          t.set_fontsize(flegsize);
       # end for
-      
+
       # Bottom plot
       ax3 = plt.subplot(313);
       plt.plot(x_seconds, time_sum_list, "go-", label=d3);
       plt.grid();
       plt.xlabel(xlabel);
       plt.ylabel(ylabel3, fontsize=fsize);
-      
+
       # Legend
       box = ax3.get_position()
       ax3.set_position([box.x0, box.y0, box.width * expansion_box, box.height])
-      leg3 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0, 
+      leg3 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0,
                         borderpad=0.15, handletextpad=0.2);
       frame3 = leg3.get_frame();
       frame3.set_facecolor("0.80");
       for t in leg3.get_texts():
          t.set_fontsize(flegsize);
       # end for
-      
+
       plt.xticks(fontsize=fsize);
       plt.yticks(fontsize=fsize);
-      
+
       # Either save the plot to a file or display it to the screen
       if (len(filename) == 0):
          plt.show();
@@ -1089,7 +1089,7 @@ def plot7(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
          plt.close();
       # end if
    # end if
-   
+
    # HTML Output:
    output_str = "<center> \n";
    junk1 = "read_write_requests_complete_rate" + str(iloop) + ".png";
@@ -1113,12 +1113,12 @@ def plot8(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
    #
    junk1 = "requests_merged_total_cpu" + str(iloop);
    if (combined_plots == 0):
-      output_str = "<H4> \n"   
+      output_str = "<H4> \n"
       output_str = output_str + str(iplot) + ". <a id=\"" + junk1 + "\">Read Requests Merged rate, Write Requests Merged rate, and Total CPU Utilization</a>";
       output_str = output_str + ". Device: " + item["device"] + " \n";
       output_str = output_str + "</H4> \n";
    elif (combined_plots == 1):
-      output_str = "<H3> \n"   
+      output_str = "<H3> \n"
       output_str = output_str + str(iplot) + ". <a id=\"" + junk1 + "\">Read Requests Merged rate, Write Requests Merged rate, and Total CPU Utilization</a>";
       output_str = output_str + "</H3> \n";
    # end if
@@ -1130,7 +1130,7 @@ def plot8(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
    output_str = output_str + "second that were queued to the device. The bottom graph plots \n";
    output_str = output_str + "the Total CPU Utilization percentage (User Time + System Time). \n";
    f.write(output_str);
-   
+
    # make the plot
    ylabel1 = "Read request \n merged rate \n (requests/s)";
    ylabel2 = "Write request \n merged rate \n (requests/s)";
@@ -1142,9 +1142,9 @@ def plot8(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
    filename = dirname + "/read_write_requests_merged_rate" + str(iloop);
    fsize = 8;
    flegsize = 6;
-   
+
    if (combined_plots == 0):
-      
+
       # Compute box_expansion factor:
       box_expansion = 0.86;   # default
       ilongest = 0;
@@ -1159,13 +1159,13 @@ def plot8(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
       # end if
       junk1 = -0.0082702674*ilongest + 1.0538027948;   # Curve fit of # chars vs. expansion box
       expansion_box = round(junk1,2);
-      
+
       Three_Chart(x_seconds, item["rrqm"], x_seconds, item["wrqm"], x_seconds, time_sum_list,
                   xlabel, ylabel1, ylabel2, ylabel3, d1, d2, d3, fsize, flegsize,
                   filename, box_expansion);
    elif (combined_plots == 1):
       jloop = -1;
-      
+
       # Compute box_expansion factor:
       expansion_box = 0.87;   # default
       ilongest = 0;
@@ -1194,11 +1194,11 @@ def plot8(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
       # end for
       junk1 = -0.0082702674*ilongest + 1.0538027948;   # Curve fit of # chars vs. expansion box
       expansion_box = round(junk1,2);
-      
+
       # Top Plot
       for item in device_data_list:
          jloop = jloop + 1;
-         
+
          marker = line_list[jloop];
          ax1 = plt.subplot(311);                 # Define top plot using subplot function
          d11 = item["device"] + " " + d1;
@@ -1211,7 +1211,7 @@ def plot8(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
       # Legend
       box = ax1.get_position()
       ax1.set_position([box.x0, box.y0, box.width * expansion_box, box.height])
-      leg1 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0, 
+      leg1 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0,
                         borderpad=0.15, handletextpad=0.2);
       frame1 = leg1.get_frame();
       frame1.set_facecolor("0.80");           # Make legend box have a gray background
@@ -1220,13 +1220,13 @@ def plot8(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
       # end for
       plt.xticks(fontsize=fsize);
       plt.yticks(fontsize=fsize);
-      
+
       # Middle plot
       jloop = -1;
-      
+
       for item in device_data_list:
          jloop = jloop + 1;
-         
+
          marker = line_list[jloop];
          ax2 = plt.subplot(312);
          d22 = item["device"] + " " + d2;
@@ -1239,7 +1239,7 @@ def plot8(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
       # Legend:
       box = ax2.get_position()
       ax2.set_position([box.x0, box.y0, box.width * expansion_box, box.height])
-      leg2 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0, 
+      leg2 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0,
                         borderpad=0.15, handletextpad=0.2);
       frame2 = leg2.get_frame();
       frame2.set_facecolor("0.80");
@@ -1248,28 +1248,28 @@ def plot8(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
       # end for
       plt.xticks(fontsize=fsize);
       plt.yticks(fontsize=fsize);
-      
+
       # Bottom plot
       ax3 = plt.subplot(313);
       plt.plot(x_seconds, time_sum_list, "go-", label=d3);
       plt.grid();
       plt.xlabel(xlabel);
       plt.ylabel(ylabel3, fontsize=fsize);
-      
+
       # Legend
       box = ax3.get_position()
       ax3.set_position([box.x0, box.y0, box.width * expansion_box, box.height])
-      leg3 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0, 
+      leg3 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0,
                         borderpad=0.15, handletextpad=0.2);
       frame3 = leg3.get_frame();
       frame3.set_facecolor("0.80");
       for t in leg3.get_texts():
          t.set_fontsize(flegsize);
       # end for
-      
+
       plt.xticks(fontsize=fsize);
       plt.yticks(fontsize=fsize);
-      
+
       # Either save the plot to a file or display it to the screen
       if (len(filename) == 0):
          plt.show();
@@ -1278,7 +1278,7 @@ def plot8(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
          plt.close();
       # end if
    # end if
-   
+
    # HTML Output:
    output_str = "<center> \n";
    junk1 = "read_write_requests_merged_rate" + str(iloop) + ".png";
@@ -1291,7 +1291,7 @@ def plot8(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
    output_str = output_str + "<BR><BR> \n";
    output_str = output_str + "</P> \n \n";
    f.write(output_str);
-   
+
 # end def
 
 
@@ -1320,7 +1320,7 @@ def plot9(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
    output_str = output_str + "plots the Total CPU Utilization percentage (User Time + System \n";
    output_str = output_str + "Time). \n";
    f.write(output_str);
-   
+
    # make the plot
    ylabel1 = "Average Size of \n IO requests \n (sectors)";
    ylabel2 = "Average Queue length \n of requests ";
@@ -1332,9 +1332,9 @@ def plot9(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
    filename = dirname + "/requests_queue_total_cpu" + str(iloop);
    fsize = 8;
    flegsize = 6;
-   
+
    if (combined_plots == 0):
-      
+
       # Compute box_expansion factor:
       box_expansion = 0.86;   # default
       ilongest = 0;
@@ -1349,13 +1349,13 @@ def plot9(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
       # end if
       junk1 = -0.0082702674*ilongest + 1.0538027948;   # Curve fit of # chars vs. expansion box
       expansion_box = round(junk1,2);
-      
+
       Three_Chart(x_seconds, item["avgrqsz"], x_seconds, item["avgqusz"], x_seconds, time_sum_list,
-                  xlabel, ylabel1, ylabel2, ylabel3, d1, d2, d3, fsize, flegsize, 
+                  xlabel, ylabel1, ylabel2, ylabel3, d1, d2, d3, fsize, flegsize,
                   filename, box_expansion);
    elif (combined_plots == 1):
       jloop = -1;
-      
+
       # Compute box_expansion factor:
       box_expansion = 0.87;   # default
       ilongest = 0;
@@ -1384,11 +1384,11 @@ def plot9(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
       # end for
       junk1 = -0.0082702674*ilongest + 1.0538027948;   # Curve fit of # chars vs. expansion box
       expansion_box = round(junk1,2);
-      
+
       # Top plot
       for item in device_data_list:
          jloop = jloop + 1;
-         
+
          marker = line_list[jloop];
          ax1 = plt.subplot(311);                 # Define top plot using subplot function
          d11 = item["device"] + " " + d1;
@@ -1401,7 +1401,7 @@ def plot9(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
       # Legend
       box = ax1.get_position()
       ax1.set_position([box.x0, box.y0, box.width * expansion_box, box.height])
-      leg1 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0, 
+      leg1 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0,
                         borderpad=0.15, handletextpad=0.2);
       frame1 = leg1.get_frame();
       frame1.set_facecolor("0.80");           # Make legend box have a gray background
@@ -1410,17 +1410,17 @@ def plot9(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
       # end for
       plt.xticks(fontsize=fsize);
       plt.yticks(fontsize=fsize);
-      
+
       # Middle plot
       jloop = -1;
       for item in device_data_list:
          jloop = jloop + 1;
-         
+
          marker = line_list[jloop];
          ax2 = plt.subplot(312);
          d22 = item["device"] + " " + d2;
          plt.plot(x_seconds, item["avgqusz"], marker, label=d22);
-         
+
          plt.xlabel(" ");
          plt.ylabel(ylabel2, fontsize=fsize);
          ax2.set_xticklabels([]);
@@ -1429,7 +1429,7 @@ def plot9(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
       # Legend:
       box = ax2.get_position()
       ax2.set_position([box.x0, box.y0, box.width * expansion_box, box.height])
-      leg2 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0, 
+      leg2 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0,
                         borderpad=0.15, handletextpad=0.2);
       frame2 = leg2.get_frame();
       frame2.set_facecolor("0.80");
@@ -1438,18 +1438,18 @@ def plot9(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
       # end for
       plt.xticks(fontsize=fsize);
       plt.yticks(fontsize=fsize);
-      
+
       # Bottom plot
       ax3 = plt.subplot(313);
       plt.plot(x_seconds, time_sum_list, "go-", label=d3);
       plt.grid();
       plt.xlabel(xlabel);
       plt.ylabel(ylabel3, fontsize=fsize);
-      
+
       # Legend
       box = ax3.get_position()
       ax3.set_position([box.x0, box.y0, box.width * expansion_box, box.height])
-      leg3 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0, 
+      leg3 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0,
                         borderpad=0.15, handletextpad=0.2);
       frame3 = leg3.get_frame();
       frame3.set_facecolor("0.80");
@@ -1458,7 +1458,7 @@ def plot9(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
       # end for
       plt.xticks(fontsize=fsize);
       plt.yticks(fontsize=fsize);
-      
+
       # Either save the plot to a file or display it to the screen
       if (len(filename) == 0):
          plt.show();
@@ -1467,7 +1467,7 @@ def plot9(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
          plt.close();
       # end if
    # end if
-   
+
    # HTML Output:
    output_str = "<center> \n";
    junk1 = "requests_queue_total_cpu" + str(iloop) + ".png";
@@ -1480,7 +1480,7 @@ def plot9(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
    output_str = output_str + "<BR><BR> \n";
    output_str = output_str + "</P> \n \n";
    f.write(output_str);
-   
+
 # end def
 
 
@@ -1501,7 +1501,7 @@ def plot10v10(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list
       output_str = output_str + str(iplot) + ". <a id=\"" + junk1 + "\">Average Read Request Time (ms), Average Write Request Time (ms), and Total CPU Utilization</a>";
       output_str = output_str + "</H3> \n";
    #end if
-   
+
    output_str = output_str + " \n";
    output_str = output_str + "<P> \n";
    output_str = output_str + "This figure has three parts. The top graph plots the average \n";
@@ -1514,7 +1514,7 @@ def plot10v10(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list
    output_str = output_str + "servicing them. The bottom graph plots the Total CPU Utilization \n";
    output_str = output_str + "percentage (User Time + System Time). \n";
    f.write(output_str);
-   
+
    # make the plot
    ylabel1 = "Average Read Request \n Time (ms)";
    ylabel2 = "Average Write Request \n Time (ms)";
@@ -1526,9 +1526,9 @@ def plot10v10(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list
    filename = dirname + "/avg_request_time_total_cpu" + str(iloop);
    fsize = 8;
    flegsize = 6;
-   
+
    if (combined_plots == 0):
-      
+
       # Compute box_expansion factor:
       box_expansion = 0.86;   # default
       ilongest = 0;
@@ -1543,13 +1543,13 @@ def plot10v10(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list
       # end if
       junk1 = -0.0082702674*ilongest + 1.0538027948;   # Curve fit of # chars vs. expansion box
       expansion_box = round(junk1,2);
-      
+
       Three_Chart(x_seconds, item["r_await"], x_seconds, item["w_await"], x_seconds, time_sum_list,
                   xlabel, ylabel1, ylabel2, ylabel3, d1, d2, d3, fsize, flegsize, filename,
                   box_expansion);
    elif (combined_plots == 1):
       jloop = -1;
-      
+
        # Compute box_expansion factor:
       box_expansion = 0.86;   # default
       ilongest = 0;
@@ -1578,11 +1578,11 @@ def plot10v10(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list
       # end for
       junk1 = -0.0082702674*ilongest + 1.0538027948;   # Curve fit of # chars vs. expansion box
       expansion_box = round(junk1,2);
-      
+
       # Top Plot
       for item in device_data_list:
          jloop = jloop + 1;
-         
+
          marker = line_list[jloop];
          ax1 = plt.subplot(311);                 # Define top plot using subplot function
          d11 = item["device"] + " " + d1;
@@ -1595,7 +1595,7 @@ def plot10v10(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list
       # Legend
       box = ax1.get_position()
       ax1.set_position([box.x0, box.y0, box.width * expansion_box, box.height])
-      leg1 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0, 
+      leg1 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0,
                         borderpad=0.15, handletextpad=0.2);
       frame1 = leg1.get_frame();
       frame1.set_facecolor("0.80");           # Make legend box have a gray background
@@ -1604,12 +1604,12 @@ def plot10v10(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list
       # end for
       plt.xticks(fontsize=fsize);
       plt.yticks(fontsize=fsize);
-      
+
       # Middle plot
       jloop = -1;
       for item in device_data_list:
          jloop = jloop + 1;
-         
+
          marker = line_list[jloop];
          ax2 = plt.subplot(312);
          d22 = item["device"] + " " + d2;
@@ -1622,7 +1622,7 @@ def plot10v10(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list
       # Legend:
       box = ax2.get_position()
       ax2.set_position([box.x0, box.y0, box.width * expansion_box, box.height])
-      leg2 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0, 
+      leg2 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0,
                         borderpad=0.15, handletextpad=0.2);
       frame2 = leg2.get_frame();
       frame2.set_facecolor("0.80");
@@ -1631,28 +1631,28 @@ def plot10v10(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list
       # end for
       plt.xticks(fontsize=fsize);
       plt.yticks(fontsize=fsize);
-      
+
       # Bottom plot
       ax3 = plt.subplot(313);
       plt.plot(x_seconds, time_sum_list, "go-", label=d3);
       plt.grid();
       plt.xlabel(xlabel);
       plt.ylabel(ylabel3, fontsize=fsize);
-      
+
       # Legend
       box = ax3.get_position()
       ax3.set_position([box.x0, box.y0, box.width * expansion_box, box.height])
-      leg3 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0, 
+      leg3 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0,
                         borderpad=0.15, handletextpad=0.2);
       frame3 = leg3.get_frame();
       frame3.set_facecolor("0.80");
       for t in leg3.get_texts():
          t.set_fontsize(flegsize);
       # end for
-      
+
       plt.xticks(fontsize=fsize);
       plt.yticks(fontsize=fsize);
-      
+
       # Either save the plot to a file or display it to the screen
       if (len(filename) == 0):
          plt.show();
@@ -1661,7 +1661,7 @@ def plot10v10(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list
          plt.close();
       # end if
    #end if
-   
+
    # HTML Output:
    output_str = "<center> \n";
    junk1 = "avg_request_time_total_cpu" + str(iloop) + ".png";
@@ -1674,7 +1674,7 @@ def plot10v10(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list
    output_str = output_str + "<BR><BR> \n";
    output_str = output_str + "</P> \n \n";
    f.write(output_str);
-   
+
 # end def
 
 
@@ -1696,7 +1696,7 @@ def plot10v9(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
       output_str = output_str + str(iplot) + ". <a id=\"" + junk1 + "\">Average Request Time (ms) and Total CPU Utilization</a>";
       output_str = output_str + "</H3> \n";
    #end if
-   
+
    output_str = output_str + " \n";
    output_str = output_str + "<P> \n";
    output_str = output_str + "This figure has two parts. The top graph plots the average \n";
@@ -1705,7 +1705,7 @@ def plot10v9(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
    output_str = output_str + "and the time spent servicing them. The bottom graph plots \n";
    output_str = output_str + "the Total CPU Utilization percentage (User Time + System Time). \n";
    f.write(output_str);
-   
+
    # make the plot
    ylabel1 = "Average Request \n Time (ms)";
    ylabel2 = "Total CPU \n Percentage \n Utilization";
@@ -1715,9 +1715,9 @@ def plot10v9(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
    filename = dirname + "/avg_request_time_total_cpu" + str(iloop);
    fsize = 8;
    flegsize = 6;
-   
+
    if (combined_plots == 0):
-      
+
       # Compute box_expansion factor:
       box_expansion = 0.86;   # default
       ilongest = 0;
@@ -1729,12 +1729,12 @@ def plot10v9(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
       # end if
       junk1 = -0.0082702674*ilongest + 1.0538027948;   # Curve fit of # chars vs. expansion box
       expansion_box = round(junk1,2);
-      
-      Two_Chart(x_seconds, item["await"], x_seconds, time_sum_list, xlabel, ylabel1, 
+
+      Two_Chart(x_seconds, item["await"], x_seconds, time_sum_list, xlabel, ylabel1,
                 ylabel2, d1, d2, fsize, flegsize, filename, box_expansion);
    elif (combined_plots == 1):
       jloop = -1;
-      
+
       # Compute box_expansion factor:
       box_expansion = 0.86;   # default
       ilongest = 0;
@@ -1756,11 +1756,11 @@ def plot10v9(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
       # end for
       junk1 = -0.0082702674*ilongest + 1.0538027948;   # Curve fit of # chars vs. expansion box
       expansion_box = round(junk1,2);
-      
+
       # Top Plot
       for item in device_data_list:
          jloop = jloop + 1;
-         
+
          marker = line_list[jloop];
          ax1 = plt.subplot(211);                 # Define top plot using subplot function
          d11 = item["device"] + " " + d1;
@@ -1773,7 +1773,7 @@ def plot10v9(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
       # Legend
       box = ax1.get_position()
       ax1.set_position([box.x0, box.y0, box.width * expansion_box, box.height])
-      leg1 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0, 
+      leg1 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0,
                         borderpad=0.15, handletextpad=0.2);
       frame1 = leg1.get_frame();
       frame1.set_facecolor("0.80");           # Make legend box have a gray background
@@ -1782,28 +1782,28 @@ def plot10v9(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
       # end for
       plt.xticks(fontsize=fsize);
       plt.yticks(fontsize=fsize);
-      
+
       # Bottom plot
       ax2 = plt.subplot(212);
       plt.plot(x_seconds, time_sum_list, "go-", label=d2);
       plt.grid();
       plt.xlabel(xlabel);
       plt.ylabel(ylabel2, fontsize=fsize);
-      
+
       # Legend
       box = ax2.get_position()
       ax2.set_position([box.x0, box.y0, box.width * expansion_box, box.height])
-      leg2 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0, 
+      leg2 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0,
                         borderpad=0.15, handletextpad=0.2);
       frame2 = leg2.get_frame();
       frame2.set_facecolor("0.80");
       for t in leg2.get_texts():
          t.set_fontsize(flegsize);
       # end for
-      
+
       plt.xticks(fontsize=fsize);
       plt.yticks(fontsize=fsize);
-      
+
       # Either save the plot to a file or display it to the screen
       if (len(filename) == 0):
          plt.show();
@@ -1812,7 +1812,7 @@ def plot10v9(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
          plt.close();
       # end if
    #end if
-   
+
    # HTML Output:
    output_str = "<center> \n";
    junk1 = "avg_request_time_total_cpu" + str(iloop) + ".png";
@@ -1825,7 +1825,7 @@ def plot10v9(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
    output_str = output_str + "<BR><BR> \n";
    output_str = output_str + "</P> \n \n";
    f.write(output_str);
-   
+
 # end def
 
 
@@ -1857,7 +1857,7 @@ def plot11(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
    output_str = output_str + "The bottom graph plots the Total CPU Utilization percentage \n";
    output_str = output_str + "(User Time + System Time). \n";
    f.write(output_str);
-   
+
    # make the plot
    ylabel1 = "% CPU time for IO \n Requests";
    ylabel2 = "Total CPU \n Percentage \n Utilization";
@@ -1867,9 +1867,9 @@ def plot11(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
    filename = dirname + "/util_cpu_total_cp" + str(iloop);
    fsize = 8;
    flegsize = 6;
-   
+
    if (combined_plots == 0):
-      
+
       # Compute box_expansion factor:
       box_expansion = 0.82;   # default
       ilongest = 0;
@@ -1881,12 +1881,12 @@ def plot11(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
       # end if
       junk1 = -0.0082702674*ilongest + 1.0538027948;   # Curve fit of # chars vs. expansion box
       expansion_box = round(junk1,2);
-      
-      Two_Chart(x_seconds, item["util"], x_seconds, time_sum_list, xlabel, ylabel1, 
+
+      Two_Chart(x_seconds, item["util"], x_seconds, time_sum_list, xlabel, ylabel1,
                 ylabel2, d1, d2, fsize, flegsize, filename, box_expansion);
    elif (combined_plots == 1):
       jloop = -1;
-      
+
       # Compute box_expansion factor:
       box_expansion = 0.90;   # default
       ilongest = 0;
@@ -1908,11 +1908,11 @@ def plot11(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
       # end for
       junk1 = -0.0082702674*ilongest + 1.0538027948;   # Curve fit of # chars vs. expansion box
       expansion_box = round(junk1,2);
-      
+
       # Top plot
       for item in device_data_list:
          jloop = jloop + 1;
-         
+
          marker = line_list[jloop];
          ax1 = plt.subplot(211);
          d11 = item["device"] + " " + d1;
@@ -1925,32 +1925,32 @@ def plot11(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
       # Legend
       box = ax1.get_position();
       ax1.set_position([box.x0, box.y0, box.width * box_expansion, box.height])
-      leg1 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0, 
+      leg1 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0,
                         borderpad=0.15, handletextpad=0.2);
       frame1 = leg1.get_frame();
       frame1.set_facecolor("0.80");
       for t in leg1.get_texts():
          t.set_fontsize(flegsize);
       # end for
-      
+
       # Bottom Plot
       ax2 = plt.subplot(212);
       plt.plot(x_seconds, time_sum_list, "go-", label=d2);
       plt.grid();
       plt.xlabel(xlabel);
       plt.ylabel(ylabel2, fontsize=fsize);
-      
+
       # Legend
       box = ax2.get_position()
       ax2.set_position([box.x0, box.y0, box.width * box_expansion, box.height])
-      leg2 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0, 
+      leg2 = plt.legend(bbox_to_anchor=(1.01, 1), loc=2, borderaxespad=0., labelspacing=0,
                         borderpad=0.15, handletextpad=0.2);
       frame2 = leg2.get_frame();
       frame2.set_facecolor("0.80");
       for t in leg2.get_texts():
          t.set_fontsize(flegsize);
       # end for
-      
+
       if (len(filename) == 0):
          plt.show();
       else:
@@ -1958,7 +1958,7 @@ def plot11(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
          plt.close();
       # end if
    #end if
-   
+
    # HTML Output:
    output_str = "<center> \n";
    junk1 = "util_cpu_total_cp" + str(iloop) + ".png";
@@ -1971,7 +1971,7 @@ def plot11(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
    output_str = output_str + "<BR><BR> \n";
    output_str = output_str + "</P> \n \n";
    f.write(output_str);
-   
+
 # end if
 
 
@@ -1998,17 +1998,17 @@ if __name__ == '__main__':
       # end if
    # end for
    input_filename = input_options[-1];
-   
+
    if (help_flag == 1):
       help_out();
       sys.exit();
    # end if
    print "combined_plots = ",combined_plots;
-   
+
    print "iostat plotting script";
    print " ";
    print "input filename: ",input_filename;
-   
+
    # Initialize lists that will store data
    user_list = [];
    nice_list = [];
@@ -2019,12 +2019,12 @@ if __name__ == '__main__':
    date_list = [];
    time_list = [];
    meridian_list = [];
-   
+
    # Initialize variables
    fsize = 8;
    vflag = 0;
    first_flag = 0;
-   
+
    # Master dictionary of device data
    device_data_list = [];
    # Systat V 10 List element is dictionary:
@@ -2055,21 +2055,21 @@ if __name__ == '__main__':
    #   local_dict{"await"} = [];
    #   local_dict{"svctm"} = [];
    #   local_dict{"util"} = [];
-   
+
    # flags for controlling flow
    info_flag = 1;       # 0 = don't gather system data, 1 = gather system data
    cpu_flag = -1;       # -1 = don't do anything, 0 = store CPU header info (only done once), 1 = Store CPU info
    device_flag = -1;    # -1 = store Device header info (only done once), 1 = store values, 2 = done
    data_flag = 0;       # -1 = cpu, 1 = device (which set of data is being gathered)
    time_flag = -1;      # -1 = don't read start time information, 1 = read start time information
-   
+
    # loop over lines in input file
    print " ";
    print "reading iostat output file ... ";
    icount = 0;
    for line in open(input_filename,'r').readlines():
       currentline = shlex.split(line);
-      
+
       if (len(currentline) > 0):
          if (device_flag == 0):
             #print "   Read device header";
@@ -2098,7 +2098,7 @@ if __name__ == '__main__':
                         device_data_list[iloop]["avgqusz"].append(float(currentline[8]));
                         device_data_list[iloop]["await"].append(float(currentline[9]));
                         device_data_list[iloop]["svctm"].append(float(currentline[10]));
-                        device_data_list[iloop]["util"].append(float(currentline[11])); 
+                        device_data_list[iloop]["util"].append(float(currentline[11]));
                      elif (vflag == 10):
                         device_data_list[iloop]["rrqm"].append(float(currentline[1]));
                         device_data_list[iloop]["wrqm"].append(float(currentline[2]));
@@ -2113,7 +2113,7 @@ if __name__ == '__main__':
                         device_data_list[iloop]["w_await"].append(float(currentline[11]));
                         device_data_list[iloop]["svctm"].append(float(currentline[12]));
                         device_data_list[iloop]["util"].append(float(currentline[13]));
-                     #end if           
+                     #end if
                      ifind = 1;
                   # end if
                # end for
@@ -2140,7 +2140,7 @@ if __name__ == '__main__':
                      local_dict["device"] = local_device;
                      local_dict["rrqm"]=[float(currentline[1])];
                      local_dict["wrqm"]=[float(currentline[2])];
-                     local_dict["r"]=[float(currentline[3])]; 
+                     local_dict["r"]=[float(currentline[3])];
                      local_dict["w"]=[float(currentline[4])];
                      local_dict["rMB"]=[float(currentline[5])];
                      local_dict["wMB"]=[float(currentline[6])];
@@ -2155,7 +2155,7 @@ if __name__ == '__main__':
                      local_dict["device"] = local_device;
                      local_dict["rrqm"]=[float(currentline[1])];
                      local_dict["wrqm"]=[float(currentline[2])];
-                     local_dict["r"]=[float(currentline[3])]; 
+                     local_dict["r"]=[float(currentline[3])];
                      local_dict["w"]=[float(currentline[4])];
                      local_dict["rMB"]=[float(currentline[5])];
                      local_dict["wMB"]=[float(currentline[6])];
@@ -2193,7 +2193,7 @@ if __name__ == '__main__':
                   local_dict["device"] = local_device;
                   local_dict["rrqm"]=[float(currentline[1])];
                   local_dict["wrqm"]=[float(currentline[2])];
-                  local_dict["r"]=[float(currentline[3])]; 
+                  local_dict["r"]=[float(currentline[3])];
                   local_dict["w"]=[float(currentline[4])];
                   local_dict["rMB"]=[float(currentline[5])];
                   local_dict["wMB"]=[float(currentline[6])];
@@ -2207,7 +2207,7 @@ if __name__ == '__main__':
                   local_dict["device"] = local_device;
                   local_dict["rrqm"]=[float(currentline[1])];
                   local_dict["wrqm"]=[float(currentline[2])];
-                  local_dict["r"]=[float(currentline[3])]; 
+                  local_dict["r"]=[float(currentline[3])];
                   local_dict["w"]=[float(currentline[4])];
                   local_dict["rMB"]=[float(currentline[5])];
                   local_dict["wMB"]=[float(currentline[6])];
@@ -2222,7 +2222,7 @@ if __name__ == '__main__':
                # end if
                #print "      local_dict = ",local_dict
             # end if
-               
+
          elif (cpu_flag == 1):
             #print "   Reading and Storing CPU values";
             user_list.append(float(currentline[0]));
@@ -2249,22 +2249,22 @@ if __name__ == '__main__':
             #print "   Read time information";
             date_list.append(currentline[0].replace("/"," "));
             # if meridian is PM then need to add 12 hours to time_list
-            if (currentline[2] == "PM"):
-               junk1 = currentline[1].replace(":"," ");
-               junk2 = shlex.split(junk1);
-               if ( int(junk2[0]) < 12):
-                  junk3 = int(junk2[0]) + 12;
-               elif (int(junk2[0]) == 12):
-                  junk3 = int(junk2[0]);
-               # end if
-               junk4 = str(junk3) + ":" + junk2[1] + ":" + junk2[2];
-               time_list.append(junk4);
-            else:
-               time_list.append(currentline[1]);
+            #if (currentline[2] == "PM"):
+            #   junk1 = currentline[1].replace(":"," ");
+            #   junk2 = shlex.split(junk1);
+            #   if ( int(junk2[0]) < 12):
+            #      junk3 = int(junk2[0]) + 12;
+            #   elif (int(junk2[0]) == 12):
+            #      junk3 = int(junk2[0]);
+            #   # end if
+            #   junk4 = str(junk3) + ":" + junk2[1] + ":" + junk2[2];
+            #   time_list.append(junk4);
+            #else:
+            time_list.append(currentline[1]);
             # end if
             #print "      date_list = ",date_list
             #print "      time_list = ",time_list
-            meridian_list.append(currentline[2]);
+            #meridian_list.append(currentline[2]);
             time_flag = -1;
             cpu_flag = 0;
             icount = icount + 1;
@@ -2293,15 +2293,15 @@ if __name__ == '__main__':
    # end for
    print "Finished reading ",icount," data points for ",len(device_data_list)," devices.";
    print "Creating plots and HTML report";
-   
+
    # Create time list for x-axis data (need to convert to regular time format)
    x_seconds = [];
    for i in range(0,len(date_list)):
       test2 = shlex.split(date_list[i]);
       test3 = test2[2] + "-" + test2[0] + "-" + test2[1];
-      
+
       junk1 = test3 + " " + time_list[i];
-      ts = time.mktime(time.strptime(junk1, '%Y-%m-%d %H:%M:%S'));
+      ts = time.mktime(time.strptime(junk1, '%y-%m-%d %H:%M:%S'));
       if (i == 0):
          BeginTime = ts;
          x_seconds.append(0.0);
@@ -2309,14 +2309,14 @@ if __name__ == '__main__':
          x_seconds.append( (ts - BeginTime) );
       # end if
    # end of
-   
+
    # "Total" CPU utilziation (user + system)
    time_sum_list = [];
    for i in range(0,len(user_list)):
        time_sum_list.append( (user_list[i] + system_list[i]) );
    # end for
-   
-   # 
+
+   #
    # HTML Report initialization
    #    Write all data files to subdirectory called HTML_REPORT
    #    File is report.html
@@ -2326,13 +2326,13 @@ if __name__ == '__main__':
    # end if
    html_filename = dirname + '/report.html';
    f = open(html_filename, 'w')
-   
+
    # Print HTML Report header
    output_str = "<H2>\n";
    output_str = output_str + "IOSTAT Report for file: " + input_filename + " \n";
    output_str = output_str + "</H2>\n";
    output_str = output_str + " \n";
-   
+
    # HTML Introduction
    output_str = "<H3>\n";
    output_str = output_str + "Introduction \n";
@@ -2368,7 +2368,7 @@ if __name__ == '__main__':
       output_str = output_str + " \n";
       f.write(output_str);
    # end if
-   
+
    # HTML System Output (from iostat):
    output_str = "<P> \n";
    output_str = output_str + "IOstat outputs a number of basic system parameters when it \n";
@@ -2381,10 +2381,11 @@ if __name__ == '__main__':
    output_str = output_str + "   <LI>Core Type " + system_info["CPU"] + " \n";
    output_str = output_str + "</UL> \n";
    output_str = output_str + "The iostat run was started on " + system_info["date"] + " at \n";
-   output_str = output_str + time_list[0] + " " + meridian_list[0] + ". \n";
+   output_str = output_str + time_list[0] + ". \n";
+   #output_str = output_str + time_list[0] + " " + meridian_list[0] + ". \n";
    output_str = output_str + "</P> \n";
    f.write(output_str);
-   
+
    # HTML hyperlinks
    if (combined_plots == 0):
       output_str = "<P> \n";
@@ -2478,7 +2479,7 @@ if __name__ == '__main__':
       output_str = output_str + " \n";
       f.write(output_str);
    #endif
-   
+
    # Create array of line colors/styles:
    # http://matplotlib.org/api/artist_api.html#matplotlib.lines.Line2D.lineStyles
    # line_style = ['-', '--', '-.'];
@@ -2492,7 +2493,7 @@ if __name__ == '__main__':
          line_list.append(junk2);
       # end for
    # end for
-   
+
    #
    # Actually create the plots!!
    #
@@ -2502,52 +2503,52 @@ if __name__ == '__main__':
       iplot = 0;
       for item in device_data_list:
          iloop = iloop + 1;
-         
+
          print "Device: ",item["device"];
          output_str = "<HR> \n";
          f.write(output_str);
-         
+
          output_str = "<H3>Device: " + item["device"] + "</H3> \n";
          f.write(output_str);
-         
+
          # Figure 1: Various CPU percentages (user, system, nice) vs. time (3 subplots)
          iplot = iplot + 1;
-         plot1(iloop, iplot, combined_plots, f, dirname, x_seconds, user_list, system_list, 
+         plot1(iloop, iplot, combined_plots, f, dirname, x_seconds, user_list, system_list,
                nice_list, fsize, item);
          print "   Finished Plot ",iplot," of ",max_plots;
-         
+
          # Figure 2: iowait percentage time
          iplot = iplot + 1;
          fsize = 6;
-         plot2(iloop, iplot, combined_plots, f, dirname, x_seconds, iowait_list, 
+         plot2(iloop, iplot, combined_plots, f, dirname, x_seconds, iowait_list,
                fsize, item);
          print "   Finished Plot ",iplot," of ",max_plots;
-         
+
          # Figure 3: Steal Time
          iplot = iplot + 1;
-         plot3(iloop, iplot, combined_plots, f, dirname, x_seconds, steal_list, 
+         plot3(iloop, iplot, combined_plots, f, dirname, x_seconds, steal_list,
                fsize, item);
          print "   Finished Plot ",iplot," of ",max_plots;
-         
+
          # Figure 4: Idle Time
          iplot = iplot + 1;
          plot4(iloop, iplot, combined_plots, f, dirname, x_seconds, idle_list,
                fsize, item);
          print "   Finished Plot ",iplot," of ",max_plots;
-         
+
          # Figure 5: Read Throughput and Total CPU Utilization
          iplot = iplot + 1;
          fsize = 6;
          plot5(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
                fsize, item, device_data_list, line_list);
          print "   Finished Plot ",iplot," of ",max_plots;
-         
+
          # Figure 6: Write Throughput and Total CPU Utilization
          iplot = iplot + 1;
          plot6(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
                fsize, item, device_data_list, line_list);
          print "   Finished Plot ",iplot," of ",max_plots;
-         
+
          # Figure 7: Read Request complete rate, Write Request complete rate, and Total CPU Utilization
          # HTML report output (opt of section)
          iplot = iplot + 1;
@@ -2555,19 +2556,19 @@ if __name__ == '__main__':
          plot7(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
                fsize, item, device_data_list, line_list);
          print "   Finished Plot ",iplot," of ",max_plots;
-         
+
          # Figure 8: Read Request merge rate, Write Request merge rate, and Total CPU Utilization
          iplot = iplot + 1;
          plot8(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
                fsize, item, device_data_list, line_list);
          print "   Finished Plot ",iplot," of ",max_plots;
-      
+
          # Figure 9: Avg. Request Size, Avg. Queue Length, and Total CPU Utilization
          iplot = iplot + 1;
          plot9(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
                fsize, item, device_data_list, line_list);
          print "   Finished Plot ",iplot," of ",max_plots;
-      
+
          # Figure 10: Average Wait Times for read, write requests
          iplot = iplot + 1;
          if (vflag == 9):
@@ -2578,65 +2579,65 @@ if __name__ == '__main__':
                       fsize, item, device_data_list, line_list);
          # end if
          print "   Finished Plot ",iplot," of ",max_plots;
-      
+
          # Figure 11: Percentage CPU Util
          iplot = iplot + 1;
          plot11(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
                 fsize, item, device_data_list, line_list);
          print "   Finished Plot ",iplot," of ",max_plots;
       # end for
-      
+
    elif (combined_plots == 1):
       # For each plot, Loop over each device and create plot and HTML:
       iloop = 1;
       iplot = 0;
-       
+
       output_str = "<HR> \n";
       f.write(output_str);
-      
+
       # Figure 1: Various CPU percentages (user, system, nice) vs. time (3 subplots)
       iplot = iplot + 1;
-      plot1(iloop, iplot, combined_plots, f, dirname, x_seconds, user_list, system_list, 
+      plot1(iloop, iplot, combined_plots, f, dirname, x_seconds, user_list, system_list,
             nice_list, fsize, item);
       print "   Finished Plot ",iplot," of ",max_plots;
-      
+
       # Figure 2: iowait percentage time
       iplot = iplot + 1;
-      plot2(iloop, iplot, combined_plots, f, dirname, x_seconds, iowait_list, 
+      plot2(iloop, iplot, combined_plots, f, dirname, x_seconds, iowait_list,
             fsize, item);
       print "   Finished Plot ",iplot," of ",max_plots;
-      
+
       # Figure 3: Steal Time
       iplot = iplot + 1;
-      plot3(iloop, iplot, combined_plots, f, dirname, x_seconds, steal_list, 
+      plot3(iloop, iplot, combined_plots, f, dirname, x_seconds, steal_list,
             fsize, item);
       print "   Finished Plot ",iplot," of ",max_plots;
-         
+
       # Figure 4: Idle Time
       iplot = iplot + 1;
       plot4(iloop, iplot, combined_plots, f, dirname, x_seconds, idle_list,
             fsize, item);
       print "   Finished Plot ",iplot," of ",max_plots;
-      
+
       # Figure 5: Read Throughput and Total CPU Utilization
       iplot = iplot + 1;
       fsize = 6;
       plot5(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
            fsize, item, device_data_list, line_list);
       print "   Finished Plot ",iplot," of ",max_plots;
-      
+
       # Figure 6: Write Throughput and Total CPU Utilization
       iplot = iplot + 1;
       plot6(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
             fsize, item, device_data_list, line_list);
       print "   Finished Plot ",iplot," of ",max_plots;
-      
+
       # Figure 7: Read Request complete rate, Write Request complete rate, and Total CPU Utilization
       iplot = iplot + 1;
       plot7(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
           fsize, item, device_data_list, line_list);
       print "   Finished Plot ",iplot," of ",max_plots;
-      
+
       # Figure 8: Read Request merge rate, Write Request merge rate, and Total CPU Utilization
       iplot = iplot + 1;
       plot8(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
@@ -2667,16 +2668,16 @@ if __name__ == '__main__':
       print "   Finished Plot ",iplot," of ",max_plots;
    # end of
    print "Finished. Please open the document HTML_REPORT/report.html in a browser.";
-   
+
    # Start of Pickling
    # =================
    if (pickle_success > 0):
       # Open file for pickling
       pickle_file = open('iostat_file.pickle', 'w')
-      
+
       # Big dictionary:
       iostat_dict = {};
-      
+
       # Create CPU dictionary for pickling:
       cpu_data = {};
       cpu_data["user_list"] = user_list;
@@ -2688,13 +2689,13 @@ if __name__ == '__main__':
       cpu_data["cpu_labels"] = cpu_labels;
       cpu_data["time_sum_list"] = time_sum_list;
       cpu_data["version"] = vflag;
-      
+
       # Time dictionary for pickling:
       time_data = {};
       time_data["date_list"] = date_list;
       time_data["time_list"] = time_list;
       time_data["meridian_list"] = meridian_list;
-      
+
       # Device data
       #device_data = {};
       #device_data["rrqm"] = device_data_list["rrqm"];
@@ -2710,17 +2711,17 @@ if __name__ == '__main__':
       #device_data["w_await"] = device_data_list["w_await"];
       #device_data["svctm"] = device_data_list["svctm"];
       #device_data["util"] = device_data_list["util"];
-      
+
       # Assemble the big pickle;
       iostat_dict["device_data_list"] = device_data_list;
       iostat_dict["cpu_data"] = cpu_data;
       iostat_dict["system_info"] = system_info;
       iostat_dict["time_data"] = time_data;
       iostat_dict["x_seconds"] = x_seconds;
-      
+
       # Write list to pickle file
       pickle.dump(iostat_dict, pickle_file);
-      
+
       # Close pickle file
       pickle_file.close();
    # end if
