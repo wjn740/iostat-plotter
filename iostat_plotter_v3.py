@@ -383,6 +383,8 @@ def One_Chart(x, y, xlabel, ylabel, d, fsize, flegsize, filename, box_expansion)
 
 def plot1(iloop, iplot, combined_plots, f, dirname, x_seconds, user_list, system_list,
           nice_list, fsize, item):
+
+   plt.figure(figsize=(12,10));
    #
    # Figure 1: Various CPU percentages (user, system, nice) vs. time (3 subplots)
    #
@@ -462,6 +464,7 @@ def plot2(iloop, iplot,  combined_plots, f, dirname, x_seconds, iowait_list,
    #
    # Figure 2: iowait percentage time
    #
+   plt.figure(figsize=(12,10));
    junk1 = "iowait_cpu_utilization" + str(iloop);
    if (combined_plots == 0):
       output_str = "<H4> \n"
@@ -520,6 +523,7 @@ def plot3(iloop, iplot, combined_plots, f, dirname, x_seconds, steal_list,
    #
    # Figure 3: Steal Time
    #
+   plt.figure(figsize=(12,10));
    junk1 = "steal_cpu_utilization" + str(iloop);
    if (combined_plots == 0):
       output_str = "<H4> \n"
@@ -579,6 +583,7 @@ def plot4(iloop, iplot, combined_plots, f, dirname, x_seconds, idle_list,
    #
    # Figure 4: Idle Time
    #
+   plt.figure(figsize=(12,10));
    junk1 = "idle_cpu_utilization" + str(iloop);
    if (combined_plots == 0):
       output_str = "<H4> \n"
@@ -637,6 +642,7 @@ def plot5(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
    #
    # Figure 5: Read Throughput and Total CPU Utilization
    #
+   plt.figure(figsize=(12,10));
    junk1 = "rmb_total_cpu" + str(iloop);
    if (combined_plots == 0):
       output_str = "<H4> \n"
@@ -779,6 +785,7 @@ def plot6(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
    #
    # Figure 6: Write Throughput and Total CPU Utilization
    #
+   plt.figure(figsize=(12,10));
    junk1 = "wmb_total_cpu" + str(iloop);
    if (combined_plots == 0):
       output_str = "<H4> \n"
@@ -920,6 +927,7 @@ def plot7(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
    #
    # Figure 7: Read Request complete rate, Write Request complete rate, and Total CPU Utilization
    #
+   plt.figure(figsize=(12,10));
    if (combined_plots == 0):
       output_str = "<H4> \n"
       junk1 = "requests_complete_total_cpu" + str(iloop);
@@ -1111,6 +1119,7 @@ def plot8(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
    #
    # Figure 8: Read Request merge rate, Write Request merge rate, and Total CPU Utilization
    #
+   plt.figure(figsize=(12,10));
    junk1 = "requests_merged_total_cpu" + str(iloop);
    if (combined_plots == 0):
       output_str = "<H4> \n"
@@ -1300,6 +1309,7 @@ def plot9(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
    #
    # Figure 9: Avg. Request Size, Avg. Queue Length, and Total CPU Utilization
    #
+   plt.figure(figsize=(12,10));
    junk1 = "requests_queue_total_cpu" + str(iloop);
    if (combined_plots == 0):
       output_str = "<H4> \n"
@@ -1490,6 +1500,7 @@ def plot10v10(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list
    # Figure 10: Average Wait Times for read, write requests
    # (for V10 format of sysstat)
    #
+   plt.figure(figsize=(12,10));
    junk1 = "avg_wait_time_total_cpu" + str(iloop);
    if (combined_plots == 0):
       output_str = "<H4> \n"
@@ -1685,6 +1696,7 @@ def plot10v9(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
    # Figure 10: Average Wait Times for requests and total CPU time
    # (for V10 format of sysstat)
    #
+   plt.figure(figsize=(12,10));
    junk1 = "avg_wait_time_total_cpu" + str(iloop);
    if (combined_plots == 0):
       output_str = "<H4> \n"
@@ -1835,6 +1847,7 @@ def plot11(iloop, iplot, combined_plots, f, dirname, x_seconds, time_sum_list,
    #
    # Figure 11: Percentage CPU Util
    #
+   plt.figure(figsize=(12,10));
    junk1 = "util_cpu_total_cpu" + str(iloop);
    if (combined_plots == 0):
       output_str = "<H4> \n"
@@ -2301,7 +2314,10 @@ if __name__ == '__main__':
       test3 = test2[2] + "-" + test2[0] + "-" + test2[1];
 
       junk1 = test3 + " " + time_list[i];
-      ts = time.mktime(time.strptime(junk1, '%y-%m-%d %H:%M:%S'));
+      try:
+        ts = time.mktime(time.strptime(junk1, '%Y-%m-%d %H:%M:%S'));
+      except ValueError:
+        ts = time.mktime(time.strptime(junk1, '%y-%m-%d %H:%M:%S'));
       if (i == 0):
          BeginTime = ts;
          x_seconds.append(0.0);
@@ -2320,11 +2336,11 @@ if __name__ == '__main__':
    # HTML Report initialization
    #    Write all data files to subdirectory called HTML_REPORT
    #    File is report.html
-   dirname ="./HTML_REPORT";
+   dirname ="./iostat_report_dir";
    if not os.path.exists(dirname):
       os.makedirs(dirname);
    # end if
-   html_filename = dirname + '/report.html';
+   html_filename = dirname + '/iostat_report.html';
    f = open(html_filename, 'w')
 
    # Print HTML Report header
